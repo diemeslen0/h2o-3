@@ -92,6 +92,8 @@ public class GLMBasicTestOrdinal extends TestUtil {
       paramsO._objective_epsilon = 1e-6;
       paramsO._beta_epsilon = 1e-4;
       paramsO._standardize = false;
+      if (generator.nextDouble() > 0.5) // randomly choose solver
+        paramsO._solver = GLMModel.GLMParameters.Solver.GRADIENT_DESCENT_SQERR;
 
       GLMModel model = new GLM(paramsO).trainModel().get();
       Scope.track_generic(model);

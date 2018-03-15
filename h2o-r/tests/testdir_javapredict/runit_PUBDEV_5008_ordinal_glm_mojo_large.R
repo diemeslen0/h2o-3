@@ -38,6 +38,8 @@ setParmsData <- function(numTest=1000) {
   params$x <- allNames[-which(allNames=="response")]
   params$y <- "response"
   params$family <- "ordinal"
+  solvers <- sample(c("GRADIENT_DESCENT_LH", "GRADIENT_DESCENT_SQERR"))
+  params$solver <- solvers[1]
 
   return(list("params" = params, "tDataset" = test_frame))
 }

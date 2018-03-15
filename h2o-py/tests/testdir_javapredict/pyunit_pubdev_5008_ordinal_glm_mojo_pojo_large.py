@@ -3,6 +3,7 @@ sys.path.insert(1, "../../../")
 import h2o
 from tests import pyunit_utils
 from random import randint
+from random import uniform
 
 def glm_ordinal_mojo_pojo():
     params = set_params()   # set deeplearning model parameters
@@ -33,6 +34,8 @@ def set_params():
     reg = 1.0/250000.0
     params = {'missing_values_handling': missing_values, 'family':"ordinal", 'alpha':[0.5], 'lambda_':[reg],
               'obj_reg':reg}
+    if uniform(0.0, 1.0) > 0.5:
+        params['solver'] = "GRADIENT_DESCENT_SQERR"
     print(params)
     return params
 
