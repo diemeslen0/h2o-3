@@ -98,3 +98,6 @@ RUN chmod 700 /usr/sbin/startup.sh && \
 # Expose ports
 # H2O, Hadoop UI, Hive
 EXPOSE 54321 8088 10000
+
+# Remove hadoop pids
+RUN rm -f tmp/*.pid
