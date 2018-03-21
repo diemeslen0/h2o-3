@@ -189,7 +189,8 @@ def call(final pipelineContext) {
       timeoutValue: 15, component: pipelineContext.getBuildConfig().COMPONENT_ANY,
       additionalTestPackages: [pipelineContext.getBuildConfig().COMPONENT_HADOOP, pipelineContext.getBuildConfig().COMPONENT_PY],
       customData: [distribution: distribution.name, version: distribution.version], pythonVersion: '2.7',
-      executionScript: 'h2o-3/scripts/jenkins/groovy/hadoopStage.groovy'
+      executionScript: 'h2o-3/scripts/jenkins/groovy/hadoopStage.groovy',
+      nodeLabel: 'docker && micro'
     ]
   }
 
